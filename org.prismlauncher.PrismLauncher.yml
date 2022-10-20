@@ -41,7 +41,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/PrismLauncher/PrismLauncher.git
-        tag: 1.4.2
+        tag: 5.0
       - type: patch
         path: 0001-Fix-meta.patch
   - name: openjdk
@@ -83,7 +83,7 @@ modules:
       - mkdir -p /app/utils/gamescope
       - mkdir -p /app/bin
       - install -Dm755 prime-run /app/bin/prime-run
-      - mv /app/bin/prismlauncher /app/bin/polyrun
+      - mv /app/bin/prismlauncher /app/bin/prismrun
       - install -Dm755 prismlauncher /app/bin/prismlauncher
     sources:
       - type: file
