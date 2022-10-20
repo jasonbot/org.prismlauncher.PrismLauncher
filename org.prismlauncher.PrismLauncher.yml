@@ -1,4 +1,4 @@
-app-id: org.polymc.PolyMC
+app-id: org.prismlauncher.PrismLauncher
 runtime: org.kde.Platform
 runtime-version: "5.15-21.08"
 sdk: org.kde.Sdk
@@ -12,7 +12,7 @@ add-extensions:
     no-autodownload: true
     directory: utils/gamescope
 
-command: polymc
+command: prismlauncher
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -28,7 +28,7 @@ finish-args:
   - --env=PATH=/app/bin:/app/utils/gamescope/bin:/usr/bin
 
 modules:
-  # Compile PolyMC
+  # Compile PrismLauncher
   - name: compile
     buildsystem: cmake-ninja
     config-opts:
@@ -40,7 +40,7 @@ modules:
         JAVA_COMPILER: /usr/lib/sdk/openjdk17/jvm/openjdk-17/bin/javac
     sources:
       - type: git
-        url: https://github.com/PolyMC/PolyMC.git
+        url: https://github.com/PrismLauncher/PrismLauncher.git
         tag: 1.4.2
       - type: patch
         path: 0001-Fix-meta.patch
@@ -83,10 +83,10 @@ modules:
       - mkdir -p /app/utils/gamescope
       - mkdir -p /app/bin
       - install -Dm755 prime-run /app/bin/prime-run
-      - mv /app/bin/polymc /app/bin/polyrun
-      - install -Dm755 polymc /app/bin/polymc
+      - mv /app/bin/prismlauncher /app/bin/polyrun
+      - install -Dm755 prismlauncher /app/bin/prismlauncher
     sources:
       - type: file
         path: prime-run
       - type: file
-        path: polymc
+        path: prismlauncher
